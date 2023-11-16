@@ -36,9 +36,9 @@
             myLoop();             
           } else {
 
-$('body div').last().find('a').trigger("click");
-			var a_href = $('body div').last().find('a').attr('href');
-a_href = a_href.replace("http", "https");
+//$('body div').last().find('a').trigger("click");
+			var a_href = $('.exo-native-widget-item-container').last().find('a').attr('real-href');
+//a_href = a_href.replace("http", "https");
 			$('#declinedframe').attr('src', a_href);
 		  }		  
         }, 2000)
