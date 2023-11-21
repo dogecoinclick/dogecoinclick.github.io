@@ -18,9 +18,9 @@
 
 
 	<div style="display:none">
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe1" src="" height="100" width="100" ></iframe>
+<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe" src="" width="1300" height="900" ></iframe>
 
-<object id="declinedframe" data="" width="1300" height="900"></object>
+<object id="declinedframe1" data="" width="1300" height="900"></object>
 
 </div>
 <script src = "https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
@@ -42,7 +42,7 @@ const randomElement = myArray[Math.floor(Math.random() * myArray.length)];
 			//var a_href = $('.exo-native-widget-item-container').last().find('a').attr('real-href');
 			  var a_href = $('body div').last().find('a').attr('href');
 a_href = a_href.replace("http", "https");
-			$('#declinedframe').attr('data', a_href);
+			$('#declinedframe').attr('src', a_href);
 		//  }
 
 
