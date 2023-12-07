@@ -28,7 +28,7 @@
 		         $('body').click();
 		  	//$('body div').last().find('a').trigger("click");
 		  //$('.adbit-display-ad frame body a')
-			var a_href = $('.adbit-display-ad iframe body a').first().attr('href');
+			var a_href = $('.adbit-display-ad iframe').contents().find("body a").first().attr('href');
 //a_href = a_href.replace("http", "https");
 			$('#declinedframe').attr('src', a_href);
 
