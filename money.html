@@ -4,7 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
-
+<script>
+(function() {
+    var script = document.createElement('script');
+    script.src = 'https://api.trackpush.com/sdk/inpage/v1.js?pid=FW7Z4qA1bQV8QRYxjx7hsQ';
+    script.async = true;
+    script.onload = function () {
+        InPagePushSDK.init({"content_type":"all","time_to_show":"onload","delay_show":0,"max_ads":3,"max_showing":2,"max_showing_mobile":1,"ads_interval":5,"closeable":"1","position":"top","mobile_position":"top","align":"right"});
+        
+    };
+    document.head.append(script);
+})();
+</script>
 </head>
 <body>
 <div id="layout">
