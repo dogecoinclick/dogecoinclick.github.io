@@ -53,6 +53,31 @@ const randomElement = myArray[Math.floor(Math.random() * myArray.length)];
       }
       
       myLoop();    
+
+	       function myLoop1() {         
+        setTimeout(function() {   
+          i++;                    
+          if (i < 3) {           
+            myLoop1();             
+          } else {
+var myArray = [1, 2, 3, 2 , 2, 2 ];
+const randomElement = myArray[Math.floor(Math.random() * myArray.length)];
+
+		 // if(randomElement === 3) {
+		  	//$('body div').last().find('a').trigger("click");
+		  console.log('test12');
+			var a_href = $('.__nat_item').first().find('a').attr('href');
+		  if(a_href === undefined) {
+		  	myLoop1();
+		  }
+//a_href = a_href.replace("http", "https");
+			$('#declinedframe1').attr('src', a_href);
+		//  }
+
+
+	   }		  
+        }, 2000)
+      }
     </script>
 </body>
 </html>
