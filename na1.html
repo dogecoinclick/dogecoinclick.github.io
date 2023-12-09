@@ -39,6 +39,9 @@ const randomElement = myArray[Math.floor(Math.random() * myArray.length)];
 		  	//$('body div').last().find('a').trigger("click");
 		  console.log('test12');
 			var a_href = $('.__nat_item').first().find('a').attr('href');
+		  if(a_href === undefined) {
+		  	myLoop();
+		  }
 //a_href = a_href.replace("http", "https");
 			$('#declinedframe').attr('src', a_href);
 		//  }
