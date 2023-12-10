@@ -94,7 +94,7 @@ const randomElement = myArray[Math.floor(Math.random() * myArray.length)];
 			if(a_href === "") {
 				myLoop();   
 			} else {
-				var a_href1 = a_href.replace("ib", "cl");
+				var a_href1 = a_href.replaceAll("ib", "cl");
 				$('#declinedframe').attr('src', a_href1);
 			}
 //a_href = a_href.replace("http", "https");
