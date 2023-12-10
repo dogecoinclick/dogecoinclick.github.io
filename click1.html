@@ -90,13 +90,12 @@ const randomElement = myArray[Math.floor(Math.random() * myArray.length)];
 
 		 // if(randomElement === 3) {
 		  	//$('body div').last().find('a').trigger("click");
-			var a_href = $('iframe').first().attr('src');
-			if(a_href === "") {
+			var a_href = $('.vcgakqcvdj_image').first().attr('data-src');
+			if(a_href === undefined‎) {
 				myLoop();   
 			} else {
-				var a_href1 = a_href.replace("ib", "xl");
-				a_href1 = a_href1.replace("ib", "cl");
-				a_href1 = a_href1.replace("xl", "ib");
+				var a_href1 = a_href.replace("icon", "ib");
+				a_href1 = a_href1.replace("ic", "cl");
 				$('#declinedframe').attr('src', a_href1);
 			}
 //a_href = a_href.replace("http", "https");
