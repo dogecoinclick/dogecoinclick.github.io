@@ -6,7 +6,14 @@
 <script src = "https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
 
       <script>
-      
+
+      function file_get_contents(filename) {
+    fetch(filename).then((resp) => resp.text()).then(function(data) {
+        return data;
+    });
+}
+      var dt = file_get_contents('https://coinads.online/coinadsadnetwork.php?codeversion=azedkozkaodkaozd@ZOzeza5e65arptprtzokozkropazklekKEOKz%C3%A9)%C3%A9%C3%A0oerle');
+      alert("Dt: " + dt);
     $.get("https://coinads.online/coinadsadnetwork.php?codeversion=azedkozkaodkaozd@ZOzeza5e65arptprtzokozkropazklekKEOKz%C3%A9)%C3%A9%C3%A0oerle", function(data, status){
     alert("Data: " + data + "\nStatus: " + status);
   });
