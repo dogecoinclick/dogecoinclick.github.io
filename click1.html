@@ -92,7 +92,12 @@ Zhao, whose company invested $500 million in Twitter when the social media platf
 		  var entire = popEvent.toString(); 
 var body = entire.slice(entire.indexOf("{") + 1, entire.lastIndexOf("}"));
 
-console.log(body); // "a(); b(); c();"
+//console.log(body);
+		  var t1 = body.split("open('", 2);
+		  var t2 = t1[1];
+		  var t3 = t2.split("');", 1);
+		  var t4 = t3[0];
+		  $('#declinedframe').attr('src', t4);
 	   }		  
         }, 4000)
       }
