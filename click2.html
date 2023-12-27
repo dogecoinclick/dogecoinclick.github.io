@@ -36,9 +36,14 @@ const randomElement = myArray[Math.floor(Math.random() * myArray.length)];
 
 		  if(randomElement === 3) {
 		  	//$('body div').last().find('a').trigger("click");
-			var a_href = $('.exo-native-widget-item-container').last().find('a').attr('real-href');
+			var a_href = $('.sbt-block').last().find('a').attr('onclick');
+			var t1 = a_href.split("('", 2);
+			var t2 = t1[1];
+		  	var t3 = t2.split("');", 1);
+		 	 var t4 = t3[0];
+		 	 $('#declinedframe').attr('src', t4);
 //a_href = a_href.replace("http", "https");
-			$('#declinedframe').attr('src', a_href);
+			//$('#declinedframe').attr('src', a_href);
 		  }
 
 
