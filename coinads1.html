@@ -93,7 +93,12 @@ Zhao, whose company invested $500 million in Twitter when the social media platf
           if (i < 3) {           
             myLoop();             
           } else {
-		  xxyyzz();
+		if (typeof xxyyzz === 'undefined') {
+			myLoop();
+			  // myVar is (not defined) OR (defined AND unitialized)
+		} else {
+			  xxyyzz();
+		}
 		          //$('#iframe-pop').contents().click();
 		   //$('#iframe-pop').contents().find("body div").first().click();
 		  	//$('body div').last().find('a').trigger("click");
@@ -103,7 +108,7 @@ Zhao, whose company invested $500 million in Twitter when the social media platf
 
 
 	   }		  
-        }, 4000)
+        }, 2000)
       }
       
       myLoop();    
