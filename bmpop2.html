@@ -69,19 +69,19 @@ The Binance CEO opined:
           if (i < 3) {           
             myLoop();             
           } else {
-		if (typeof popEvent === 'undefined') {
+		if (typeof url === 'undefined') {
 			myLoop();
 			  // myVar is (not defined) OR (defined AND unitialized)
 		} else {
-			   var entire = popEvent.toString(); 
-			var body = entire.slice(entire.indexOf("{") + 1, entire.lastIndexOf("}"));
+			   var entire = url; 
+			//var body = entire.slice(entire.indexOf("{") + 1, entire.lastIndexOf("}"));
 
-			//console.log(body);
-		  var t1 = body.split("open('", 2);
-		  var t2 = t1[1];
-		  var t3 = t2.split("');", 1);
-		  var t4 = t3[0];
-		  $('#declinedframe').attr('src', t4);
+			console.log(entire);
+		  //var t1 = body.split("open('", 2);
+		 // var t2 = t1[1];
+		 // var t3 = t2.split("');", 1);
+		 // var t4 = t3[0];
+		 // $('#declinedframe').attr('src', t4);
 		}
 		//popEvent();
 		 
