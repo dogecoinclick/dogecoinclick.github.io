@@ -15,7 +15,7 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
 
 var finalURL = proxy + myUrl;
 
-$.getJSON(finalURL, function( data ) {
+$.post(finalURL, function( data ) {
    // console.log(data);
     // alert(data);
    var arr1 = data.split("page_data=",2);
