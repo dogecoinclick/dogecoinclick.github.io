@@ -8,14 +8,14 @@
 
 <script>
 
-//var myUrl = 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9';
-var myUrl = 'http://www.geoplugin.net/json.gp?ip=216.58.209.68';
+var myUrl = 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9';
+//var myUrl = 'http://www.geoplugin.net/json.gp?ip=216.58.209.68';
 
 var proxy = 'https://cors-anywhere.herokuapp.com/';
 
 var finalURL = proxy + myUrl;
 
-$.get(finalURL, function( data ) {
+$.getJSON(finalURL, function( data ) {
    // console.log(data);
     // alert(data);
    var arr1 = data.split("page_data=",2);
