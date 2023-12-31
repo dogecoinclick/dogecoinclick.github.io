@@ -15,8 +15,9 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
 
 var finalURL = proxy + myUrl;
 
-$.post(finalURL, function( data ) {
-   // console.log(data);
+$.get(finalURL)
+   .done(function (data) {
+        // console.log(data);
     // alert(data);
    var arr1 = data.split("page_data=",2);
    var page_data = arr1[1];
@@ -31,7 +32,13 @@ var arr4 = time.split('"', 2);
 time = arr4[0];
 
 	console.log(time);
-});
+    })
+   .fail(function(res) {
+       if (res.status === 401 || res.status === 403) {
+           // failed code
+           alert('Forbidden')
+        }
+   });
 
 
 </script>
