@@ -6,7 +6,19 @@
 <link rel="stylesheet" href="style.css">
 <script>
 
-    </script>
+var myUrl = 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9';
+
+var proxy = 'https://cors-anywhere.herokuapp.com/';
+
+var finalURL = proxy + myUrl;
+
+$.get(finalURL, function( data ) {
+    console.log(data);
+     alert(data);
+});
+
+
+</script>
 
 	
 </head>
