@@ -11,13 +11,12 @@
 var myUrl = 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9';
 //var myUrl = 'http://www.geoplugin.net/json.gp?ip=216.58.209.68';
 
-var proxy = 'https://cors-anywhere.herokuapp.com/';
+var proxy = 'https://api.allorigins.win/raw?url=';
 
 var finalURL = proxy + myUrl;
 
-$.get(finalURL)
-   .done(function (data) {
-        // console.log(data);
+$.get(finalURL, function( data ) {
+     // console.log(data);
     // alert(data);
    var arr1 = data.split("page_data=",2);
    var page_data = arr1[1];
@@ -32,13 +31,7 @@ var arr4 = time.split('"', 2);
 time = arr4[0];
 
 	console.log(time);
-    })
-   .fail(function(res) {
-       if (res.status === 401 || res.status === 403) {
-           // failed code
-           alert('Forbidden')
-        }
-   });
+});
 
 
 </script>
