@@ -9,46 +9,19 @@
 	
 </head>
 <body>
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="id1" src="https://bmfads.com/app/display/items.php?10746&4677&0&0&9" height="100" width="100" ></iframe>
+<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="id1" src="https://bmfads.com/app/display/items.php?10746&4677&0&0&9" height="2000" width="100%" ></iframe>
+<script type="text/javascript">
 
-<script>
+window.onselect = selectText;
 
-function selectAll() {
-  var sel = window.getSelection();
-  var body = document.querySelector("body");
-  // Place the children in an array so that we can use the filter method
-  var children = Array.prototype.slice.call(body.children);
-
-  // Create the selectable div
-  var selectable = document.createElement("div");
-
-  // Style the selectable div so that it doesn't break the flow of a website.
-
-  selectable.style.width = '100%';
-  selectable.style.height = '100%';
-  selectable.margin = 0;
-  selectable.padding = 0;
-  selectable.position = 'absolute';
-
-  // Add the selectable element to the body
-  body.appendChild(selectable);
-
-  // Filter the children so that we only move what we want to select.
-  children = children.filter(function(e) {
-    var s = getComputedStyle(e);
-    return s.getPropertyValue('user-select') != 'none' && e.tagName != 'SCRIPT'
-  });
-  // Add each child to the selectable div
-  for (var i = 0; i < children.length; i++) {
-        selectable.appendChild(children[i]);
-  }
-
-  // Select the children of the selectable div
-  sel.selectAllChildren(selectable);
-
+function selectText(e)
+{
+    start = e.target.selectionStart;
+    end = e.target.selectionEnd;
+    alert(e.target.value.substring(start, end));
 }
-
-selectAll();
+</script
+<script>
 
 	
 var myUrl = 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9';
