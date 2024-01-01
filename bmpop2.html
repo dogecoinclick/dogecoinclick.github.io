@@ -15,7 +15,7 @@ var myUrl = 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9';
 $.ajax({
    type: 'get',
    crossDomain: true,
-   dataType: 'jsonp',
+   dataType: 'text',
    url: myUrl,
    success: function(jsondata){
      console.log(jsondata);
