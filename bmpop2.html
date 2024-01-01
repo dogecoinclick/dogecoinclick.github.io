@@ -16,7 +16,8 @@ var myUrl = 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9';
 $.ajax({
    type: 'get',
    crossDomain: true,
-   dataType: 'script',
+   contentType: 'application/json',
+   dataType: 'json',
    url: myUrl,
   error: function(xhr, status, error) {
   alert(xhr.responseText);
@@ -45,10 +46,6 @@ time = arr4[0];
 	
 </head>
 <body>
-    <input type="file" value="https://bmfads.com/app/display/items.php?10746&4677&0&0&9">
-<script>
-	    //document.foo.submit();
-</script>
 	<div id="layout">
 	<div id="header">
 		<div id="logo"></div>
