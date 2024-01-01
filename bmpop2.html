@@ -8,6 +8,9 @@
 
 <script>
 
+	const frame = document.getElementById('id1');
+frame.contentWindow.postMessage('hello', 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9);
+
 var myUrl = 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9';
 
 
@@ -46,9 +49,8 @@ time = arr4[0];
 	
 </head>
 <body>
-	<!-- BMFAds.com - Ad Display Code -->
-<script data-cfasync="false" async type="text/javascript" src="//bmfads.com/app/display/items.php?10746&4677&0&0&9"></script>
-<!-- BMFAds.com - Ad Display Code -->
+<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="id1" src="" height="100" width="100" ></iframe>
+
 	<div id="layout">
 	<div id="header">
 		<div id="logo"></div>
