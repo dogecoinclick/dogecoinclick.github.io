@@ -13,11 +13,7 @@
 
 <script>
 
-	const frame = document.getElementById('id1');
-frame.contentWindow.postMessage('hello', 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9');
-
-
-window.addEventListener('message', event => {
+	window.addEventListener('message', event => {
     // IMPORTANT: check the origin of the data!
     if (event.origin === 'https://1dogecoin.click') {
         // The data was sent from your site.
@@ -30,6 +26,12 @@ window.addEventListener('message', event => {
         return;
     }
 });
+
+	const frame = document.getElementById('id1');
+frame.contentWindow.postMessage('hello', 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9');
+
+
+
 	
 var myUrl = 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9';
 
