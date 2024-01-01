@@ -7,16 +7,20 @@
 <link rel="stylesheet" href="style.css">
 
 <script>
-window.onerror = function(){
-   return true;
-}
+
 var myUrl = 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9';
+
+
+
 
 $.ajax({
    type: 'get',
    crossDomain: true,
    dataType: 'text',
    url: myUrl,
+  error: function(xhr, status, error) {
+  alert(xhr.responseText);
+},
    success: function(jsondata){
      console.log(jsondata);
      alert(jsondata);
