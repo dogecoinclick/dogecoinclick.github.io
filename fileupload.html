@@ -5,15 +5,31 @@
 <script>
 //var myUrl = 'https://proxycheck.io/v2/2402:9d80:249:3613:4028:b26d:c2f2:ea86?vpn=1&asn=1';
 
-var url = 'https://api.myip.com';
+$.get('https://api.ipify.org/?format=json', function( data ) {
+	//console.log(data.ip);
+    //alert(data.ip);
+    var ip = data.ip;
+    var proxy = 'https://cors-get-proxy.sirjosh.workers.dev/?url=';
 
-var proxy = 'https://cors-get-proxy.sirjosh.workers.dev/?url=';
+    var myUrl = 'https://proxycheck.io/v2/' + data.ip + '?vpn=1&asn=1';
+    
+    var finalURL = proxy + myUrl;
+    
+    $.getJSON(finalURL, function( data ) {
+	//console.log(data);
+    //alert(data);
+    var check = data[ip].proxy;
+    //alert(check);
+    
+    if(check === 'yes') {
+		console.log('proxy');
+        alert('proxy');
+	} else {
+    	console.log('no');
+        alert('no');
+    }
 
-var finalURL = proxy + url;
-
-$.get(finalURL, function( data ) {
-    alert(data);
-    var myUrl = 'https://proxycheck.io/v2/';
+});
 
 });
 </script>
@@ -22,3 +38,4 @@ $.get(finalURL, function( data ) {
 
 </body>
 </html>
+
