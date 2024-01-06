@@ -22,11 +22,13 @@ $.get('https://api.ipify.org/?format=json', function( data ) {
     //alert(check);
     
     if(check === 'yes') {
-		console.log('proxy');
-        alert('proxy');
+		//console.log('proxy');
+        //alert('proxy');
 	} else {
-    	console.log('no');
-        alert('no');
+	    var src = "";
+	    $('#declinedframe').attr('src', a_href);
+    	//console.log('no');
+        //alert('no');
     }
 
 });
@@ -35,7 +37,7 @@ $.get('https://api.ipify.org/?format=json', function( data ) {
 </script>
 </head>
 <body>
-
+<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe" src="" height="100" width="100" ></iframe>
 </body>
 </html>
 
