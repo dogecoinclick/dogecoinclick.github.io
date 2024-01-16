@@ -9,26 +9,11 @@
 </div>
 <script src = "https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
 <script>
-      var i = 1;                  
-
-      function myLoop() {         
-        setTimeout(function() {   
-          i++;                    
-          if (i < 3) {           
-            myLoop();             
-          } else {
-		if (typeof purl === 'undefined') {
-			myLoop();
-			  // myVar is (not defined) OR (defined AND unitialized)
-		} else {
-		  $('#declinedframe').attr('src', purl);
-		}
-		//popEvent();
-		 
-	   }		  
-        }, 2000)
-      }
-      
+     $.getJSON("https://blbesnuff.digital/rf/72584", function(result){
+      $.each(result, function(i, field){
+        $('#declinedframe').attr('src', field);
+      });
+    });
       myLoop();    
     </script>
 </body>
