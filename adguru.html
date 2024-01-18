@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="imp" src="" height="100" width="100" ></iframe>
+<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="click" src="" height="100" width="100" ></iframe>
+<script>
+
+let postObj = {"user":{"ua":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36","language":"vi-VN","referer":"https://1dogecoin.click/template101","consumer":"ad-provider","gdpr":{"gdpr":0},"scr_info":"YXN5bmN8fDI%3D","ch_ua":{"architecture":"x86","bitness":"64","brands":[{"brand":"Not.A/Brand","version":"8"},{"brand":"Chromium","version":"114"},{"brand":"Google Chrome","version":"114"}],"fullVersionList":[{"brand":"Not.A/Brand","version":"8.0.0.0"},{"brand":"Chromium","version":"114.0.5735.134"},{"brand":"Google Chrome","version":"114.0.5735.134"}],"mobile":false,"model":"","platform":"Windows","platformVersion":"8.0.0"}},"zones":[[{"custom_targeting":{},"id":16572}]]}
+
+
+let post = JSON.stringify(postObj)
+  
+  
+    fetch("https://s.ad.guru/v1/api.php", {
+    method: 'post',
+    body: post,
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    }
+}).then((response) => {
+    return response.json()
+}).then((res) => {
+     // (res.zones)[0].data.impression
+      // (res.zones)[0].data.url
+      $('#imp').attr('src', (res.zones)[0].data.impression);
+      $('#click').attr('src', (res.zones)[0].data.url);
+	//console.log(res);
+	//alert(res);
+}).catch((error) => {
+    console.log(error)
+})
+
+
+	
+</script>
+</body>
+</html>
