@@ -58,7 +58,7 @@ Zhao was asked during a news conference at the Web Summit in Lisbon whether CBDC
             myLoop();             
           } else {
 		  	//$('body div').last().find('a').trigger("click");
-			var a_href = ($('#bn').contents().find("a")[1]).attr('href');
+			var a_href = $('#bn').contents().find("a:eq(1)").attr('href');
 			if(a_href === undefined) {
 				myLoop();   
 			} else {
