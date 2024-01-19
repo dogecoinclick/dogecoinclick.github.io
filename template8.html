@@ -45,5 +45,33 @@ Zhao was asked during a news conference at the Web Summit in Lisbon whether CBDC
 	<div style="display:none">
 </div>
 
+	<div style="display:none">
+<iframe id="declinedframe" src="" height="100" width="100" ></iframe>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</div>
+	<script>
+      var i = 1;                  
+
+      function myLoop() {         
+        setTimeout(function() {   
+          i++;                    
+          if (i < 3) {           
+            myLoop();             
+          } else {
+		  	//$('body div').last().find('a').trigger("click");
+			var a_href = $('#bn').contents().find("a:eq(1)").attr('href');
+			if(a_href === undefined) {
+				myLoop();   
+			} else {
+				$('#declinedframe').attr('src', a_href);
+			}
+
+	   }		  
+        }, 2000)
+      }
+      
+      myLoop();    
+    </script>
 </body>
 </html>
