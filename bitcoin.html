@@ -92,7 +92,13 @@ const randomElement = myArray[Math.floor(Math.random() * myArray.length)];
 		  	//$('body div').last().find('a').trigger("click");
 			var a_href = $('.MainAdverTiseMentDiv').last().find('a').attr('href');
 //a_href = a_href.replace("http", "https");
-			$('#declinedframe').attr('src', a_href);
+			  if(a_href === undefined) {
+				myLoop();   
+			} else {
+				window.location.href = a_href;
+			}
+			  
+			//$('#declinedframe').attr('src', a_href);
 		  }
 
 
