@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".more").click(function(){
+    var show = $('#more-cate').hasClass("show");
+	if(show) {
+		$('#more-cate').removeClass('show'); 
+		$('#more-cate').addClass('hide');
+		$(".more").text("Thêm thể loại");
+	} else {
+		$('#more-cate').removeClass('hide'); 
+		$('#more-cate').addClass('show');
+		$(".more").text("Ẩn bớt thể loại");
+	}
+  });
+});
+</script>
+</head>
+<body>
+<div id="layout">
+	<div id="header">
+		<div id="logo"></div>
+		<div id="menu">
+			<div class="menu-item"><a href="#">Home</a></div>
+			<div class="menu-item"><a href="#">Home</a></div>
+			<div class="menu-item"><a href="#">Home</a></div>
+			<div class="menu-item"><a href="#">Home</a></div>
+		</div>
+		<div id="search">
+			<div class="search-group">
+				<input type="text" name="k" class="search-input" maxlength="2048" placeholder="Tìm truyện tranh" autocomplete="off"/>
+				<button type="submit" title="Search" class="search-submit">Tìm</button>
+			</div>
+		</div>
+	</div>
+	<div id="nav">
+		<div class="category">
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a class="more" href="#">Thêm thể loại</a></div>
+		</div>
+		<div id="more-cate" class="category hide">
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+		</div>
+	</div>
+	<div id="content" class="clear">
+		<ul class="breadcrumb">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Action</a></li>
+			<li><a href="#">Tiên tôn lạc vô cực</a></li>
+			<li>Chapter 131</li>
+		</ul>
+		<div class="detail">
+			<div class="title">
+				<h1 class="title-h1"><a href="#">Tiên Tôn Lạc Vô Cực Tiên Tôn Lạc Vô Cực</a><span> - Chapter 131</span></h1>
+				<p>Cập nhật lúc: 23:50 08/09/2022</p>
+			</div>
+			<div class="chapter-nav">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Danh sách chap</a></li>
+					<li><a href="#">Refresh</a></li>
+					
+				</ul>
+				<ul>
+					<li><a href="#">Chap trước</a></li>
+					<li>
+						<select id="select-chapter" class="select-chapter" class="select-chapter">
+							<option>Chapter 131</option>
+							<option>Chapter 131</option>
+							<option>Chapter 131</option>
+							<option>Chapter 131</option>
+							<option>Chapter 131</option>
+							<option>Chapter 131</option>
+							<option>Chapter 131</option>
+						</select>
+					</li>
+					<li><a href="#">Chap sau</a></li>
+				</ul>
+			</div>
+			<div class="chapter-content">
+				<p><img src="11.jpg"/></p>
+				<p><img src="22.jpg"/></p>
+				<p><img src="33.jpg"/></p>
+			</div>
+			<div class="chapter-nav">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Danh sách chap</a></li>
+					<li><a href="#">Refresh</a></li>
+					
+				</ul>
+				<ul>
+					<li><a href="#">Chap trước</a></li>
+					<li>
+						<select id="select-chapter" class="select-chapter" class="select-chapter">
+							<option>Chapter 131</option>
+							<option>Chapter 131</option>
+							<option>Chapter 131</option>
+							<option>Chapter 131</option>
+							<option>Chapter 131</option>
+							<option>Chapter 131</option>
+							<option>Chapter 131</option>
+						</select>
+					</li>
+					<li><a href="#">Chap sau</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p>Copyright © 2022 ztruyen. All Right Reserved</p>
+		<p>javaleee13@gmail.com</p>
+	</div>
+</div>
+</body>
+</html>

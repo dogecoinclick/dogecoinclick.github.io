@@ -57,7 +57,6 @@ body {
 #layout {
 	margin: 0 auto;
 	padding: 10px;
-	width: 90%;
 }
 #header {
 	border-top: 1px solid #000;
@@ -69,13 +68,33 @@ body {
 	display:inline-block;
 }
 
+#search {
+	padding: 10px;
+}
+
+.search-group {
+	margin: 0 auto;
+	text-align: center;
+}
+.search-input {
+  padding: 5px;
+  font-size: 17px;
+  width: 73%;
+}
+.search-submit {
+  padding: 6px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
 #nav {
 	
 }
 .item {
 	padding : 5px;
 	margin-right: 3px;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	display:inline-block;
 	background: #ddd;
 }
@@ -83,23 +102,64 @@ body {
 	clear:both;
 }
 #content {
-	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
 }
-
-#content {
-	margin-bottom: 20px;
-}
-
-#content p {
-	margin-bottom: 20px;
-}
-
 .comic {
+	float:left;
+	width: calc(50% - 4px);
+	padding: 5px 4px 5px 0px;
+}
+.comic img {
+	width: 100%;
+}
+.comic p {
+	margin-top: 5px;
+}
+.breadcrumb {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.breadcrumb li {
+    display: inline-block;
+	padding-right: 5px;
+}
+
+.detail {
+	width: 100%;
+}
+
+.title {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.title h1 {
+	font-size: 21px;
+	text-transform: uppercase;
+}
+
+.detail-comic {
+	width: 100%;
+	margin-bottom: 20px;
+}
+.detail-comic-img {
+	width: 100%;
+	text-align: center;
+}
+.detail-comic-img img{
+	width: 50%;
+}
+
+.info {
 	width: 100%;
 	margin-bottom: 20px;
 }
 
-.comic:after {
+.info ul li:after {
 	clear: both;
     content: ".";
     display: block;
@@ -108,16 +168,85 @@ body {
     visibility: hidden;
 }
 
-.content-img {
-	text-align: center;
-}
-.content-img img {
-	width: 50%;
+
+.info-name {
+	float: left;
+	margin-bottom: 10px;
+	width: 30%;
 }
 
+.detail-info {
+	float: left;
+	margin-bottom: 10px;
+	width: 70%;
+}
+.detail-info a {
+	padding-right: 5px;
+}
+
+.chapter {
+	width: 100%;
+}
+
+.chapter h2 {
+	font-size: 16px;
+    font-weight: 500;
+	text-transform: uppercase;
+	border-bottom: 1px solid #000;
+	margin-bottom: 10px;
+}
+.chapter-title {
+	width: 100%;
+}
+.chapter-title li {
+	display: inline-block;
+	width: 32%;
+	margin-bottom: 10px;
+}
+
+.chapter-list li ul li {
+	display: inline-block;
+	width: 32%;
+	margin-bottom: 10px;
+}
+
+.more-chapter {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 10px;
+	cursor: pointer;
+	border: 1px solid #ddd;
+	line-height: 30px;
+}
+
+.chapter-nav {
+	width: 100#;
+	text-align: center;
+}
+
+.chapter-nav ul li{
+	display: inline-block;
+	padding: 5px 5px;
+}
+
+.chapter-content {
+	width: 100%;
+}
+
+.chapter-content img {
+	width: 100%;
+}
 
 #footer {
 	margin-top: 10px;
 	width: 100%;
 	text-align: center;
+}
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
 }
