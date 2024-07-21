@@ -1,20 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src = "https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
-<script>
-$.getJSON("https://wivyiz.com/cuload?a=1&e=aeyJwaWQiOjExNDI2MjAsInNpZCI6MTE3NzQwNSwid2lkIjo1MjA2NTAsImQiOiIiLCJsaSI6MX0=&tz=", function(data, status){
 	
-      var uf1 = (data[0].ads)[0].uf;
-	$('#declinedframe').attr('src', uf1);
-    });
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".more").click(function(){
+    var show = $('#more-cate').hasClass("show");
+	if(show) {
+		$('#more-cate').removeClass('show'); 
+		$('#more-cate').addClass('hide');
+		$(".more").text("Thêm thể loại");
+	} else {
+		$('#more-cate').removeClass('hide'); 
+		$('#more-cate').addClass('show');
+		$(".more").text("Ẩn bớt thể loại");
+	}
+  });
+});
 </script>
 </head>
 <body>
-
-	<div style="display:none">
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe" src="" height="100" width="100" ></iframe>
-
+<div id="layout">
+	<div id="header">
+		<div id="logo"></div>
+		<div id="menu">
+			<div class="menu-item"><a href="/">Home</a></div>
+			<div class="menu-item"><a href="detail.html">Action</a></div>
+			<div class="menu-item"><a href="detail.html">Adventure</a></div>
+			<div class="menu-item"><a href="detail.html">Anime</a></div>
+		</div>
+		<div id="search">
+			<div class="search-group">
+				<input type="text" name="k" class="search-input" maxlength="2048" placeholder="Tìm truyện tranh" autocomplete="off"/>
+				<button type="submit" title="Search" class="search-submit">Search</button>
+			</div>
+		</div>
+	</div>
+	<div id="nav">
+		<div class="category">
+			<div class="item"><a href="detail.html">Chuyển Sinh</a></div>
+			<div class="item"><a href="detail.html">Cổ Đại</a></div>
+			<div class="item"><a href="detail.html">Comedy</a></div>
+			<div class="item"><a href="detail.html">Comic</a></div>
+			<div class="item"><a href="detail.html">Demons</a></div>
+			<div class="item"><a href="detail.html">Detective</a></div>
+			<div class="item"><a href="detail.html">Doujinshi</a></div>
+			<div class="item"><a class="more" href="#">Thêm thể loại</a></div>
+		</div>
+		<div id="more-cate" class="category hide">
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+			<div class="item"><a href="#">Item 1</a></div>
+		</div>
+	</div>
+	<div id="content" class="clear">
+		<div class="comic">
+			<a href="detail.html"><img class="comic-img" src="tu-la-vo-than.jpg"/>
+			<p>Record Of Ragnarok: The Apocalypse Of The Gods</p></a>
+			
+		</div>
+		<div class="comic">
+			<a href="detail.html"><img class="comic-img" src="tu-la-vo-than.jpg"/>
+			<p>Phantom Busters</p></a>
+		
+			
+		</div>
+		<div class="comic">
+			<a href="detail.html"><img class="comic-img" src="tu-la-vo-than.jpg"/>
+			<p>Phantom Busters</p></a>
+			
+			
+		</div>
+		<div class="comic">
+			
+			<a href="detail.html"><img class="comic-img" src="tu-la-vo-than.jpg"/>
+			<p>Quỷ Vương</p></a>
+		
+			
+		</div>
+		<div class="comic">
+			<a href="detail.html"><img class="comic-img" src="tu-la-vo-than.jpg"/>
+			<p>Án Mạng Liên Hoàn: Huyết Nhãn</p></a>
+		
+			
+		</div>
+	</div>
+	<div id="footer">
+	</div>
 </div>
 </body>
 </html>
