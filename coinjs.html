@@ -3,56 +3,8 @@
 <head>
 </head>
 <body>
-<script src = "https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
 
-      <script>
+      <iframe src="https://bitcotasks.com/promote/24884" scrolling="no" style="width:0; height:0; border:0; padding:0;overflow:hidden" 00></iframe>
 
-            var src = "https://coinads.online/popads.php?iduser=78&popads=1&timepop=5&reply=1";
-
-// Exmaple from: 
-// https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
-function reqListener(){
-  console.log( this.responseText );
-}
-
-var oReq = new XMLHttpRequest();
-oReq.addEventListener("load", reqListener);
-oReq.open("GET", src);
-oReq.send();
-
-            $.ajax({
-    url: 'https://coinads.online/popads.php?iduser=78&popads=1&timepop=5&reply=1',
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': '*'
-
-
-    },
-    type: "POST", /* or type:"GET" or type:"PUT" */
-    dataType: "json",
-    data: {
-    },
-    success: function (result) {
-        console.log(result);
-    },
-    error: function () {
-        console.log("error");
-    }
-});
-
-
-            
-
-      function file_get_contents(filename) {
-    fetch(filename).then((resp) => resp.text()).then(function(data) {
-        return data;
-    });
-}
-      var dt = file_get_contents('https://coinads.online/popads.php?iduser=78&popads=1&timepop=5&reply=1');
-      alert("Dt: " + dt);
-    $.get("https://coinads.online/popads.php?iduser=78&popads=1&timepop=5&reply=1", function(data, status){
-    alert("Data: " + data + "\nStatus: " + status);
-  });
-    </script>
 </body>
 </html>
