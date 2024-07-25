@@ -295,30 +295,6 @@ var _0xc88e=["","split","0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRS
 
 var adclosed = false;
 
-	function parse_query_string(query) {
-  var vars = query.split("&");
-  var query_string = {};
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split("=");
-    var key = decodeURIComponent(pair.shift());
-    var value = decodeURIComponent(pair.join("="));
-    // If first entry with this name
-    if (typeof query_string[key] === "undefined") {
-      query_string[key] = value;
-      // If second entry with this name
-    } else if (typeof query_string[key] === "string") {
-      var arr = [query_string[key], value];
-      query_string[key] = arr;
-      // If third or later entry with this name
-    } else {
-      query_string[key].push(value);
-    }
-  }
-  return query_string;
-}
-
-	var query = window.location.search.substring(1);
-var qs = parse_query_string(query);
 
 
 		function cleandata(data) {
@@ -332,9 +308,9 @@ var qs = parse_query_string(query);
 			var rdata;
             var formData1 = new FormData();
             formData1.append('recaptchaToken', token); 
-            var validate = '44e6c3a9bf0da58f922b2b808d366d89c4e08bad2af3705468ac8cd725e3cdce';
+            var validate = '13a';
             formData1.append('validate', validate);
-            rdata = 'YToxMTp7czo4OiJyZWZlcnJlciI7czoxNToiMWRvZ2Vjb2luLmNsaWNrIjtzOjg6ImR1cmF0aW9uIjtzOjA6IiI7czozOiJkdXIiO3M6MjoiMzAiO3M6NzoiaWZyYW1lZCI7YjowO3M6NjoicmV3YXJkIjtzOjg6IjAuMDAxNTAwIjtzOjc6InVzZXJfaWQiO3M6NDoiODg0NSI7czozOiJwaWQiO3M6NToiMjQ4ODQiO3M6NjoiZGV2aWNlIjtzOjc6ImRlc2t0b3AiO3M6MjoiaXAiO3M6MTI6IjEwMy4xOS45OS4xMyI7czo3OiJjb3VudHJ5IjtzOjI6IlZOIjtzOjY6IndlYl9pZCI7czo0OiI3NjE2Ijt9';
+            rdata = '13b';
 					 
 			formData1.append('data', rdata);
 
@@ -393,7 +369,7 @@ var qs = parse_query_string(query);
                                 html: '<b></b>'
                             }).then(() => {
                                 if(!adclosed) {
-                                    var token_data = '73eaaf4ef325e02c2d39c4ecd8ade441288e21647c15ba6dd9e1798bb1370f7a';
+                                    var token_data = '13c';
 
                                     var formData = new FormData();
                                     formData.append('token_data', token_data);
