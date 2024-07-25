@@ -97,7 +97,7 @@
                 clickDiv.addEventListener('click', function() {
                     window.open(adData.targetUrl, '_blank');
                     $.ajax({
-                        url: '/banner/click',
+                        url: 'https://mypayu.com/banner/click',
                         type: 'POST',
                         dataType: 'json',
                         data: {
@@ -155,7 +155,7 @@
                 if (element.contains(document.activeElement)) {
                     element.blur();
                     $.ajax({
-                        url: '/banner/click',
+                        url: 'https://mypayu.com/banner/click',
                         type: 'POST',
                         dataType: 'json',
                         data: {
@@ -177,7 +177,6 @@
         
         document.addEventListener('DOMContentLoaded', function() {
             var body = document.body;
-            if (parent == top) {
                 var xhr = new XMLHttpRequest();
                 xhr.open('GET', 'https://api.bitlabs.ai/v2/client/surveys?sdk=TAB');
                 xhr.setRequestHeader('X-Api-Token', '3b557d47-710e-48a6-ba87-6cb3bcb4cae5');
@@ -201,9 +200,7 @@
                 };
             
                 xhr.send();
-            } else {
-                body.innerHTML = '<div class="text-center"><p class="text-dark">Invalid Source</p></div>';
-            }
+            
         });
 
         function checkAndLoadAd() {
