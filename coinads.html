@@ -19,27 +19,29 @@
 </div>
 
 	<script>
-	
+	var dta;
 	$.get("https://bitcotasks.com/promote/24884", function(data, status){
 		
-		var t1 = data.split("validate = '", 2);
+		dta = data;
+
+
+		$.get("https://1dogecoin.click/tesst.html", function(data1, status1){
+
+			var t1 = dta.split("validate = '", 2);
 		  var t2 = t1[1];
 		  var t3 = t2.split("';", 1);
 		  var t4 = t3[0];
 
-		var q1 = data.split("rdata = '", 2);
+		var q1 = dta.split("rdata = '", 2);
 		  var q2 = q1[1];
 		  var q3 = q2.split("';", 1);
 		  var q4 = q3[0];
 
 
-		var o1 = data.split("rdata = '", 2);
+		var o1 = dta.split("rdata = '", 2);
 		  var o2 = o1[1];
 		  var o3 = o2.split("';", 1);
 		  var o4 = o3[0];
-
-
-		$.get("https://1dogecoin.click/tesst.html", function(data1, status1){
 
 			var data2 = data1.replace("13a", t4);
 			data2 = data2.replace("13b", q4);
