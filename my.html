@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <meta name="description" content="">
+</head>
+<style>
+    html, body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+    #ad-container {
+        width: 300px;
+        height: 250px;
+    }
+</style>
+<body>
+    <div id="ad-container"><!-- This is where the ad will be displayed --></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const AD_STORAGE_KEY = 'adData1';
+        const AD_EXPIRY_KEY = 'adExpiry1';
+
+        function loadAd() {
+            $.ajax({
+                url: '/banner/load',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    size: '300x250',
+                    pubid: '1741',
+                    domain: 'xdailyx.pro'
+                },
+                success: function(response) {
+                    if (response.type) {
+                        localStorage.setItem(AD_STORAGE_KEY, JSON.stringify(response));
+                        localStorage.setItem(AD_EXPIRY_KEY, Date.now() + 24 * 60 * 60 * 1000); // 24 hours in milliseconds
+                        displayAd(response);
+                    } else {
+                        console.log('No ads available for the selected preferences.');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error loading ads:', error);
+                }
+            });
+        }
+
+        function displayAd(adData) {
+            var adContainer = document.getElementById('ad-container');
+            adContainer.innerHTML = '';
+
+            if (adData.type === 'code') {
+                var Div = document.createElement('div');
+                var clickDiv = document.createElement('div');
+                clickDiv.id = 'placed-ad';
+                clickDiv.style.cursor = 'pointer';
+                clickDiv.innerHTML = adData.code;
+                
+                var link = document.createElement('a');
+                link.href = 'https://mypayu.com';
+                link.target = '_blank';
+                link.style.textDecoration = 'none';
+
+                var watermark = document.createElement('span');
+                watermark.textContent = 'mypayu.com';
+                watermark.style.backgroundColor = 'black';
+                watermark.style.color = 'white';
+                watermark.style.padding = '5px';
+                watermark.style.position = 'absolute';
+                watermark.style.top = '0';
+                watermark.style.right = '0';
+                watermark.style.fontSize = '12px';
+                
+                link.appendChild(watermark);
+                
+                Div.appendChild(clickDiv);
+                Div.appendChild(link);
+                
+                adContainer.appendChild(Div);
+                document.title = adData.name;
+
+                var metaDescription = document.querySelector('meta[name="description"]');
+                if (metaDescription) {
+                    metaDescription.setAttribute('content', adData.description);
+                }
+                monitoring(adData.id, '1741');
+            } else if (adData.type === 'image') {
+                var Div = document.createElement('div');
+                var clickDiv = document.createElement('div');
+                clickDiv.id = 'placed-ad';
+                clickDiv.style.cursor = 'pointer';
+                
+                clickDiv.addEventListener('click', function() {
+                    window.open(adData.targetUrl, '_blank');
+                    $.ajax({
+                        url: '/banner/click',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            bannerid: adData.id,
+                            pubid: '1741',
+                            domain: 'xdailyx.pro'
+                        }
+                    });
+                });
+                
+                var img = document.createElement('img');
+                img.src = adData.image;
+                img.width = '300';
+                img.height = '250';
+                
+                clickDiv.appendChild(img);
+                
+                var link = document.createElement('a');
+                link.href = 'https://mypayu.com';
+                link.target = '_blank';
+                link.style.textDecoration = 'none';
+
+                var watermark = document.createElement('span');
+                watermark.textContent = 'mypayu.com';
+                watermark.style.backgroundColor = 'black';
+                watermark.style.color = 'white';
+                watermark.style.padding = '5px';
+                watermark.style.position = 'absolute';
+                watermark.style.top = '0';
+                watermark.style.right = '0';
+                watermark.style.fontSize = '12px';
+                
+                link.appendChild(watermark);
+                
+                Div.appendChild(clickDiv);
+                Div.appendChild(link);
+                
+                adContainer.appendChild(Div);
+                document.title = adData.name;
+
+                var metaDescription = document.querySelector('meta[name="description"]');
+                if (metaDescription) {
+                    metaDescription.setAttribute('content', adData.description);
+                }
+            } else {
+                console.error('Invalid ad type:', adData.type);
+            }
+        }
+
+        var running = false;
+        var monitor;
+
+        function check(BannerId, PubID, e) {
+            e.forEach(function (element) {
+                if (element.contains(document.activeElement)) {
+                    element.blur();
+                    $.ajax({
+                        url: '/banner/click',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            bannerid: BannerId,
+                            pubid: PubID,
+                            domain: 'xdailyx.pro'
+                        }
+                    });
+                }
+            });
+        }
+
+        function monitoring(BannerId, PubID) {
+            var e = document.querySelectorAll("#placed-ad *");
+            monitor = setInterval(function() {
+                check(BannerId, PubID, e);
+            }, 1000);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var body = document.body;
+            if (parent == top) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://api.bitlabs.ai/v2/client/surveys?sdk=TAB');
+                xhr.setRequestHeader('X-Api-Token', '3b557d47-710e-48a6-ba87-6cb3bcb4cae5');
+                xhr.setRequestHeader('X-User-Id', '292968594');
+                xhr.setRequestHeader('Accept', 'application/json');
+            
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            var response = JSON.parse(xhr.responseText);
+                            var restrictionReason = response.data.restriction_reason;
+                            if (restrictionReason && restrictionReason.using_vpn) {
+                                body.innerHTML = '<div class="text-center"><p class="text-dark">Proxy</p></div>';
+                            } else {
+                                checkAndLoadAd();
+                            }
+                        } else {
+                            checkAndLoadAd();
+                        }
+                    }
+                };
+            
+                xhr.send();
+            } else {
+                body.innerHTML = '<div class="text-center"><p class="text-dark">Invalid Source</p></div>';
+            }
+        });
+
+        function checkAndLoadAd() {
+            const adData = JSON.parse(localStorage.getItem(AD_STORAGE_KEY));
+            const adExpiry = localStorage.getItem(AD_EXPIRY_KEY);
+
+            if (adData && adExpiry && Date.now() < adExpiry) {
+                displayAd(adData);
+            } else {
+                loadAd();
+            }
+        }
+    </script>
+</body>
+</html>
