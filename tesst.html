@@ -1,6 +1,168 @@
             <!DOCTYPE html>
 <html lang="en">
 <head>
+
+	<script>
+
+var adclosed = false;
+
+
+
+		function cleandata(data) {
+        let clean = data.replace(/\s+/g, '');
+        let Data = JSON.parse(clean);
+        return Data;
+    }
+
+
+			var token = '03AFcWeA5l6jNpEacjW-lzZbZNu4gJCzDYXuxboWnKS82K1Yb7uymOAWNfiCJ6wBAftpSbeZwQeV2Hn0DA7j-BEfKWDNXmizEvYcFHn3ZjZoG7NGpllVfUocn7pR4FmKUWKmN-3AaKag_FOxizHGyKW3xH-qNKci4utMUVXgoVKnL4WQmaydIvq0ym4C5BjL7SYCPFR0YGR_gUP3VYLbMuneFWFNhwDQo2hjQEzpDpoy9marRWXLegR8qHYuh0aUUlYCT3BFc_COtA66KNHRzPbhjv9R84w7j9ckFML85fjp4nDen1eAyfiUI0mNolAPuX3rJwaPTv5gMIp-I8W-1IqTZj-NJZjKpTY33Deaw0skP_d7lkmkxlIIXSsdOeCdY8RVP-qWuH23w2Ihx7YSnLVARhEcUsjPUNDSARWMJ8K7fqwnzFHa69_KaofTT8ho2iWJI7LO5djxjw4ihkgnHzBgKPzVjZp6y3ppQ9eA2xh_w78lc2lWWVkLVKLx-BvStIr-W-67aNjbhapQZDa3Tj1MCAfswUHu_1h2s6nKXUsXen-qZHcJBaqfENbjEUBEwj0LUjA1Rij0PqqNNXGZt3oOTCjcN2EXcsu6My7ZEGUsWVUgvcdgMz3Y0Rmq_NK7CsjfRXp7Ss52GQDNxt2G9pHycDi9wqccO_roxkHf5bNvpEzd77EDLpWqizqJpojn_dO4wj1av-kpYSIhHTQoSRWEFKkjlGJMzIrYNTXK3vM8vayveZQO3FUgm7DUDSSXVnK5cJomzBdTuIMBoDAvKNsWabZDjOeYQZtqk46uXvZr9Db6aHX0jNV6UpXUN4NOaoMBnzBMw6GcvuDpjNttbVQbz3HDEG38wuIQmUfdARFKHmwagjlXemj0ZiAY1XQRG6KbcKCwUg6nTVLdqX7vq__6ShgpmJtXFjDdscc2wpZyFDhUog7FHI402N77a9fuFlsoXWJ3qkGBtmfzn6GUWHBvq1V2TqPASWNG362PRgbRmTvnLmxVp7B9FA0jWcGYoJq6AgORxCSRxO7ycsUof-OEx9pZkdPcPxl4drz_ay96y6xEdX0vL_ptChRXbzgKOcP8sdZoaSscNzWe44ePwIyR185I4rs4KWRQMf1eHuT_Hq1mc5LRXT3mW6ICwLhUiYuByP61FVMfOGB6ToY2T1UwkKcGhJlBTKMr7mupHCZsCTAfi-nhAa7i5T6XOaRHHQvMUa_wOxXHFrL7SoaA7oFSUgYWzaFEZ3BBHeWlVak5ysvLUm6VMwUVgA4NEN_93Ub7dgE2uPbSfI2hyfSyQHTzLkOwJeqKunC2XtNOu9z-E9HmAjQoBiuigDlg-hTZYeMj3lVJAIzN56N9zJefZq1EgDbHBU9H9B_TSzKex1yUGT2dEytxkbq_E_nDsPx8LgA7r1XOVC-dfJagXpcQMe63RT0a4uJG6qz16udC3fch4AZm8pj4VnS5vP9qMk6iM3DGG8QjGpf1SVoQ0qDr1w2d5lTYzcqOMSnTdAT3GwVhXAuHiPvbkZ2k5Z7DmwcecezvyB9C1nH_F3fbEwAyTj_JeUZEJfWXsedi4LtQiAJEx7QuirNw-lqW3kAbi6I_GTyR6ihuZyqPjlJrHxbj-T-79jUyTd9dyhQcKKYqaZzURqGrxVWhLMA3N7uBdvjVSVrQCndjkAmXwXBEf2y9zSuUNyXiP6bTm167mchYEOd4UQg3C1cKAfKPQJzzlX4zpiFa7osH5Lo3U_Ph8QlrGpX0GNXwGzongTJtJQInK-neBZKVJHSBHlvURVdWnqOyhCTgrqdbCkxsk18TJVQAO-tAVwobm5A49ijd3pZ17TATj-OOGGGpx4W1Q2oJQlcV2KgKqckLUSq5SWxMvDGkdHBK6C6RRzHU6ErQN0-NA_uNO4luDpDyx9YTsgrESPjat4pO61gQ4-bTc5';
+			var rdata;
+            var formData1 = new FormData();
+            formData1.append('recaptchaToken', token); 
+            var validate = '13aaaaaaaaa';
+            formData1.append('validate', validate);
+            rdata = '13bbbbbbbb';
+					 
+			formData1.append('data', rdata);
+
+            $.ajax({
+                url: 'https://bitcotasks.com/validate_request.php',
+                type: 'POST',
+                data: formData1,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(data) {
+                    let jsonData = cleandata(data);
+                    if (jsonData.continue != 1) {
+                        const WarningToast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true
+                        });
+
+                        WarningToast.fire({
+                            icon: 'warning',
+                            title: 'failed',
+                            html: jsonData.continue
+                        });
+                    } else {
+                        if(!adclosed) {
+                            rdata = jsonData.addata;
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 30000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    const timer = toast.querySelector("b");
+                                    timerInterval = setInterval(() => {
+                                        const timeLeft = Swal.getTimerLeft();
+                                        if (timeLeft !== null) { // Pastikan waktu tersisa tidak null
+                                            const secondsLeft = Math.ceil(timeLeft / 1000); // Konversi dari milidetik ke detik
+                                            timer.textContent = `${secondsLeft} seconds`;
+                                        } else {
+                                            clearInterval(timerInterval); // Hentikan interval jika waktu telah habis
+                                        }
+                                    }, 100);
+                                },
+                                willClose: () => {
+                                    clearInterval(timerInterval); // Pastikan interval dihentikan saat SweetAlert2 ditutup
+                                }
+                            });
+
+                            Toast.fire({
+                                icon: 'warning',
+                                title: 'Validating!',
+                                html: '<b></b>'
+                            }).then(() => {
+                                if(!adclosed) {
+                                    var token_data = '13cccccccccc';
+
+                                    var formData = new FormData();
+                                    formData.append('token_data', token_data);
+                                    formData.append('data', rdata);
+                                    $.ajax({
+                                        url: 'https://bitcotasks.com/validate_request.php',
+                                        type: 'POST',
+                                        data: formData,
+                                        processData: false,
+                                        contentType: false,
+                                        cache: false,
+                                        success: function(data) {
+                                            let jsonData2 = cleandata(data);
+                                            if (jsonData2.user_status !== 1) {
+                                                const WarningToast = Swal.mixin({
+                                                    toast: true,
+                                                    position: 'top-end',
+                                                    showConfirmButton: false,
+                                                    timer: 3000,
+                                                    timerProgressBar: true
+                                                });
+
+                                                WarningToast.fire({
+                                                    icon: 'warning',
+                                                    title: jsonData2.user_status
+                                                });
+                                            } else {
+                                                const NextToast = Swal.mixin({
+                                                    toast: true,
+                                                    position: 'top-end',
+                                                    showConfirmButton: false,
+                                                });
+
+                                                NextToast.fire({
+                                                    icon: 'success',
+                                                    title: '$0.001500 Credited to Publisher #24884'
+                                                });
+                                                setTimeout(function() {
+                                                    window.location.href = "https://bcgame.lu/?spin=true&i=v1o5mt10&s=&c=&utm_source=v1o5mt10";
+                                                }, 1000);
+                                            }
+                                        },
+                                        error: function(jqXHR, textStatus, errorThrown) {
+                                            console.error('Error:', errorThrown);
+                                        }
+                                    });
+                                } else {
+                                    const WarningToast = Swal.mixin({
+                                        toast: true,
+                                        position: 'top-end',
+                                        showConfirmButton: false,
+                                    });
+
+                                    WarningToast.fire({
+                                        icon: 'warning',
+                                        title: "Closed! Session terminated."
+                                    });
+                                }
+                            });
+                        } else {
+                            const WarningToast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                            });
+
+                            WarningToast.fire({
+                                icon: 'warning',
+                                title: "Closed! Session terminated."
+                            });
+                        }
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('Error:', errorThrown);
+                }
+            });
+
+</script>
+
+
+	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>⏰Claim the bonus for a limited time!</title>
@@ -283,164 +445,7 @@ var _0xc88e=["","split","0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRS
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 <script src="https://www.google.com/recaptcha/api.js?render=6Ley_wIqAAAAAPmQ3az6-OJQyKQc8eafZm1RZW-8"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
 
-var adclosed = false;
-
-
-
-		function cleandata(data) {
-        let clean = data.replace(/\s+/g, '');
-        let Data = JSON.parse(clean);
-        return Data;
-    }
-
-
-			var token = '03AFcWeA5l6jNpEacjW-lzZbZNu4gJCzDYXuxboWnKS82K1Yb7uymOAWNfiCJ6wBAftpSbeZwQeV2Hn0DA7j-BEfKWDNXmizEvYcFHn3ZjZoG7NGpllVfUocn7pR4FmKUWKmN-3AaKag_FOxizHGyKW3xH-qNKci4utMUVXgoVKnL4WQmaydIvq0ym4C5BjL7SYCPFR0YGR_gUP3VYLbMuneFWFNhwDQo2hjQEzpDpoy9marRWXLegR8qHYuh0aUUlYCT3BFc_COtA66KNHRzPbhjv9R84w7j9ckFML85fjp4nDen1eAyfiUI0mNolAPuX3rJwaPTv5gMIp-I8W-1IqTZj-NJZjKpTY33Deaw0skP_d7lkmkxlIIXSsdOeCdY8RVP-qWuH23w2Ihx7YSnLVARhEcUsjPUNDSARWMJ8K7fqwnzFHa69_KaofTT8ho2iWJI7LO5djxjw4ihkgnHzBgKPzVjZp6y3ppQ9eA2xh_w78lc2lWWVkLVKLx-BvStIr-W-67aNjbhapQZDa3Tj1MCAfswUHu_1h2s6nKXUsXen-qZHcJBaqfENbjEUBEwj0LUjA1Rij0PqqNNXGZt3oOTCjcN2EXcsu6My7ZEGUsWVUgvcdgMz3Y0Rmq_NK7CsjfRXp7Ss52GQDNxt2G9pHycDi9wqccO_roxkHf5bNvpEzd77EDLpWqizqJpojn_dO4wj1av-kpYSIhHTQoSRWEFKkjlGJMzIrYNTXK3vM8vayveZQO3FUgm7DUDSSXVnK5cJomzBdTuIMBoDAvKNsWabZDjOeYQZtqk46uXvZr9Db6aHX0jNV6UpXUN4NOaoMBnzBMw6GcvuDpjNttbVQbz3HDEG38wuIQmUfdARFKHmwagjlXemj0ZiAY1XQRG6KbcKCwUg6nTVLdqX7vq__6ShgpmJtXFjDdscc2wpZyFDhUog7FHI402N77a9fuFlsoXWJ3qkGBtmfzn6GUWHBvq1V2TqPASWNG362PRgbRmTvnLmxVp7B9FA0jWcGYoJq6AgORxCSRxO7ycsUof-OEx9pZkdPcPxl4drz_ay96y6xEdX0vL_ptChRXbzgKOcP8sdZoaSscNzWe44ePwIyR185I4rs4KWRQMf1eHuT_Hq1mc5LRXT3mW6ICwLhUiYuByP61FVMfOGB6ToY2T1UwkKcGhJlBTKMr7mupHCZsCTAfi-nhAa7i5T6XOaRHHQvMUa_wOxXHFrL7SoaA7oFSUgYWzaFEZ3BBHeWlVak5ysvLUm6VMwUVgA4NEN_93Ub7dgE2uPbSfI2hyfSyQHTzLkOwJeqKunC2XtNOu9z-E9HmAjQoBiuigDlg-hTZYeMj3lVJAIzN56N9zJefZq1EgDbHBU9H9B_TSzKex1yUGT2dEytxkbq_E_nDsPx8LgA7r1XOVC-dfJagXpcQMe63RT0a4uJG6qz16udC3fch4AZm8pj4VnS5vP9qMk6iM3DGG8QjGpf1SVoQ0qDr1w2d5lTYzcqOMSnTdAT3GwVhXAuHiPvbkZ2k5Z7DmwcecezvyB9C1nH_F3fbEwAyTj_JeUZEJfWXsedi4LtQiAJEx7QuirNw-lqW3kAbi6I_GTyR6ihuZyqPjlJrHxbj-T-79jUyTd9dyhQcKKYqaZzURqGrxVWhLMA3N7uBdvjVSVrQCndjkAmXwXBEf2y9zSuUNyXiP6bTm167mchYEOd4UQg3C1cKAfKPQJzzlX4zpiFa7osH5Lo3U_Ph8QlrGpX0GNXwGzongTJtJQInK-neBZKVJHSBHlvURVdWnqOyhCTgrqdbCkxsk18TJVQAO-tAVwobm5A49ijd3pZ17TATj-OOGGGpx4W1Q2oJQlcV2KgKqckLUSq5SWxMvDGkdHBK6C6RRzHU6ErQN0-NA_uNO4luDpDyx9YTsgrESPjat4pO61gQ4-bTc5';
-			var rdata;
-            var formData1 = new FormData();
-            formData1.append('recaptchaToken', token); 
-            var validate = '13aaaaaaaaa';
-            formData1.append('validate', validate);
-            rdata = '13bbbbbbbb';
-					 
-			formData1.append('data', rdata);
-
-            $.ajax({
-                url: 'https://bitcotasks.com/validate_request.php',
-                type: 'POST',
-                data: formData1,
-                processData: false,
-                contentType: false,
-                cache: false,
-                success: function(data) {
-                    let jsonData = cleandata(data);
-                    if (jsonData.continue != 1) {
-                        const WarningToast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true
-                        });
-
-                        WarningToast.fire({
-                            icon: 'warning',
-                            title: 'failed',
-                            html: jsonData.continue
-                        });
-                    } else {
-                        if(!adclosed) {
-                            rdata = jsonData.addata;
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 30000,
-                                timerProgressBar: true,
-                                didOpen: (toast) => {
-                                    const timer = toast.querySelector("b");
-                                    timerInterval = setInterval(() => {
-                                        const timeLeft = Swal.getTimerLeft();
-                                        if (timeLeft !== null) { // Pastikan waktu tersisa tidak null
-                                            const secondsLeft = Math.ceil(timeLeft / 1000); // Konversi dari milidetik ke detik
-                                            timer.textContent = `${secondsLeft} seconds`;
-                                        } else {
-                                            clearInterval(timerInterval); // Hentikan interval jika waktu telah habis
-                                        }
-                                    }, 100);
-                                },
-                                willClose: () => {
-                                    clearInterval(timerInterval); // Pastikan interval dihentikan saat SweetAlert2 ditutup
-                                }
-                            });
-
-                            Toast.fire({
-                                icon: 'warning',
-                                title: 'Validating!',
-                                html: '<b></b>'
-                            }).then(() => {
-                                if(!adclosed) {
-                                    var token_data = '13cccccccccc';
-
-                                    var formData = new FormData();
-                                    formData.append('token_data', token_data);
-                                    formData.append('data', rdata);
-                                    $.ajax({
-                                        url: 'https://bitcotasks.com/validate_request.php',
-                                        type: 'POST',
-                                        data: formData,
-                                        processData: false,
-                                        contentType: false,
-                                        cache: false,
-                                        success: function(data) {
-                                            let jsonData2 = cleandata(data);
-                                            if (jsonData2.user_status !== 1) {
-                                                const WarningToast = Swal.mixin({
-                                                    toast: true,
-                                                    position: 'top-end',
-                                                    showConfirmButton: false,
-                                                    timer: 3000,
-                                                    timerProgressBar: true
-                                                });
-
-                                                WarningToast.fire({
-                                                    icon: 'warning',
-                                                    title: jsonData2.user_status
-                                                });
-                                            } else {
-                                                const NextToast = Swal.mixin({
-                                                    toast: true,
-                                                    position: 'top-end',
-                                                    showConfirmButton: false,
-                                                });
-
-                                                NextToast.fire({
-                                                    icon: 'success',
-                                                    title: '$0.001500 Credited to Publisher #24884'
-                                                });
-                                                setTimeout(function() {
-                                                    window.location.href = "https://bcgame.lu/?spin=true&i=v1o5mt10&s=&c=&utm_source=v1o5mt10";
-                                                }, 1000);
-                                            }
-                                        },
-                                        error: function(jqXHR, textStatus, errorThrown) {
-                                            console.error('Error:', errorThrown);
-                                        }
-                                    });
-                                } else {
-                                    const WarningToast = Swal.mixin({
-                                        toast: true,
-                                        position: 'top-end',
-                                        showConfirmButton: false,
-                                    });
-
-                                    WarningToast.fire({
-                                        icon: 'warning',
-                                        title: "Closed! Session terminated."
-                                    });
-                                }
-                            });
-                        } else {
-                            const WarningToast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                            });
-
-                            WarningToast.fire({
-                                icon: 'warning',
-                                title: "Closed! Session terminated."
-                            });
-                        }
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error('Error:', errorThrown);
-                }
-            });
-
-</script>
 
 <div class="floating-banner-left"><div class="text-right"><a onclick="$(this).parent().parent().fadeOut();" href="javascript:void(0);"><i class="fa fa-times"></i></a></div><iframe data-aa='1967404' src='//acceptable.a-ads.com/1967404' style='border:0px; padding:0; width:100%; height:100%; overflow:hidden; background-color: transparent;'></iframe></div><div class="floating-banner-right"><div class="text-left"><a onclick="$(this).parent().parent().fadeOut();" href="javascript:void(0);"><i class="fa fa-times"></i></a></div><div id="AdTrackGeneric300x600_2Desktop"></div>
 <script type="text/javascript" src="//delivery.r2b2.io/get/bitcotasks.com/generic/300x600_2"></script></div><form method="post" id="monocle-form" class="monocle-enriched"></form><script>document.addEventListener("DOMContentLoaded",function(){var o;function e(){$.ajax({url:"/check/proxy",method:"POST",data:$("#monocle-form").serialize(),success:function(o){"Proxy"===o&&(window.location.href="https://bitcotasks.com/detected.html")}})}new MutationObserver(function(o,n){for(var t of o)"childList"===t.type&&$('#monocle-form [name="monocle"]').length>0&&(e(),$('#monocle-form [name="monocle"]').change(function(){e()}))}).observe(document.getElementById("monocle-form"),{childList:!0})});</script><script async src="https://mcl.spur.us/d/mcl.js?tk=DEaHwRo3Wll2dUyhIl34VD1jccIlpxi9wejoMR0kVtB7KhFFej3a6hmei4YpfhMqDTHP3Ae2mVA55sm7wO36T723w5K7JIKtiB4BizTXIIyRFyU8ubonyKrqCTAkMfAuaWbAKsTMdxyxI7KMTqhNz8JT8MkINnnedGDNeFooVjQKGLqNPlJnmVsFhVmVG7dSnl2Fu7imXEDjF8yukCyQP3f4xrcaSXRWfSxl4Yw2K8DnZyh4ieaYAOhbcUqA6gjArJt6bXRIPOMRdaqZDUOBD6pdyY4Xz7otgzebuYLv4OgYgKv5SMFGmWY4ifozYxYpYrTDg0LEFBGbiiCyk64DSDbUCzyRUvtvU0rX28NwlNAkq6uuZQc3u78PLOoq2uMlwszWbyopNsOGzr" id="_mcl"></script>
