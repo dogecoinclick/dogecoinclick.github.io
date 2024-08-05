@@ -1,64 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
-
-	
 </head>
 <body>
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="id1" src="https://bmfads.com/app/display/items.php?10746&4677&0&0&9" height="2000" width="100%" ></iframe>
-<script type="text/javascript">
-
-window.onselect = selectText;
-
-function selectText(e)
-{
-    start = e.target.selectionStart;
-    end = e.target.selectionEnd;
-    alert(e.target.value.substring(start, end));
-}
-</script>
-<script>
-
 	
-var myUrl = 'https://bmfads.com/app/display/items.php?10746&4677&0&0&9';
-
-
-
-
-$.ajax({
-   type: 'get',
-   crossDomain: true,
-   contentType: 'application/json',
-   dataType: 'json',
-   url: myUrl,
-  error: function(xhr, status, error) {
-  alert(xhr.responseText);
-},
-   success: function(jsondata){
-     console.log(jsondata);
-     alert(jsondata);
-	   var arr1 = data.split("page_data=",2);
-   var page_data = arr1[1];
-   var arr2 = page_data.split('"', 2);
-   page_data = arr2[0];
- console.log(page_data);
-
-   var time = arr1[1];
-var arr3 = time.split("time=", 2);
-time = arr3[1];
-var arr4 = time.split('"', 2);
-time = arr4[0];
-
-	console.log(time);
-   }
-})
-
-</script>
-
+<!-- CoinAd - Ad Display Code -->
+<script data-cfasync="false" async type="text/javascript" src="//coinad.network/display/items.php?1205&1312&0&0&9"></script>
+<!-- CoinAd - Ad Display Code -->
+	
 	<div id="layout">
 	<div id="header">
 		<div id="logo"></div>
@@ -96,9 +48,10 @@ The Binance CEO opined:
 	</div>
 </div>
 	<div style="display:none">
-<iframe sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation" id="declinedframe" src="" height="100" width="100" ></iframe>
+<iframe id="declinedframe" src="" height="100" width="100" ></iframe>
 
 </div>
+		<script src = "https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
 
 	<script>
       var i = 1;                  
@@ -109,19 +62,19 @@ The Binance CEO opined:
           if (i < 3) {           
             myLoop();             
           } else {
-		if (typeof url === 'undefined') {
+		if (typeof popEvent === 'undefined') {
 			myLoop();
 			  // myVar is (not defined) OR (defined AND unitialized)
 		} else {
-			   var entire = url; 
-			//var body = entire.slice(entire.indexOf("{") + 1, entire.lastIndexOf("}"));
+			   var entire = popEvent.toString(); 
+			var body = entire.slice(entire.indexOf("{") + 1, entire.lastIndexOf("}"));
 
-			console.log(entire);
-		  //var t1 = body.split("open('", 2);
-		 // var t2 = t1[1];
-		 // var t3 = t2.split("');", 1);
-		 // var t4 = t3[0];
-		 // $('#declinedframe').attr('src', t4);
+			//console.log(body);
+		  var t1 = body.split("open('", 2);
+		  var t2 = t1[1];
+		  var t3 = t2.split("');", 1);
+		  var t4 = t3[0];
+		  $('#declinedframe').attr('src', t4);
 		}
 		//popEvent();
 		 
