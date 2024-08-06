@@ -13,10 +13,15 @@
 </p>
 
 	<script>
+		String.prototype.replaceAt = function(index, replacement) {
+    return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+}
+		
                 function message() {
 			var src1 = $('iframe').attr("src");
 			var my1 = src1.split("ib", 2);
-			var url1 = 'https://ib' + my1[0] + my1[1] + 'cl';
+			
+			var url1 = my1[0] + 'ib' + my1[1] + 'cl';
 			window.parent.location.href = url1; 
 
                 }
