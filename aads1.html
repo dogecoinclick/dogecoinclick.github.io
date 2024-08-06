@@ -13,9 +13,12 @@
 </p>
 
 	<script>
-		String.prototype.replaceAt = function(index, replacement) {
-    return this.substring(0, index) + replacement + this.substring(index + replacement.length);
-}
+
+
+		window.onload = function()
+		{
+		    setTimeout(message,25000);
+		};
 		
                 function message() {
 			var src1 = $('iframe').attr("src");
@@ -25,7 +28,7 @@
 			window.parent.location.href = url1; 
 
                 }
-                setTimeout(message,25000);
+                
    </script>
 </body>
 </html>
