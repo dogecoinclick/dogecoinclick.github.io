@@ -13,8 +13,9 @@
 
 <script type="text/javascript">
   function message() {
-			var src1 = $(this).parent().find('div').last().find('iframe').last().attr("src");
-			var my1 = src1.split("ib", 2);
+			var src1 = $(this).parent().find('iframe');
+				var src11 = src1.attr("src");
+			var my1 = src11.split("ib", 2);
 			
 			var url1 = my1[0] + 'ib' + my1[1] + 'cl';
 			window.top.location.href = url1; 
